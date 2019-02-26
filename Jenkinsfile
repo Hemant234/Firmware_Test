@@ -24,7 +24,7 @@ node() {
 	bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a''' 
 	}
   }
-}
+
 stage('build env'){	
  def workspace = pwd()
  print "$workspace"
