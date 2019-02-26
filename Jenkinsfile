@@ -59,13 +59,13 @@ stage('running the program'){
         commit.each {
         //println "${it}"
         dir("${it}"){
-	try{
+	
 	file=bat(returnStdout: true, script:'''dir /s /b *.txt*''').trim()
 	bat '''
         call activate
 	IFE_performance.py
 	'''
-	}
+	
 	
 	}
 	}
