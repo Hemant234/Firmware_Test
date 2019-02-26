@@ -18,7 +18,7 @@ node() {
 	{
 	shortCommit = bat(returnStdout: true, script: "git log -1")
 	writeFile file: "Commitversion.txt", text: "$shortCommit"
-	bat 'xcopy "C:\Program Files (x86)\Jenkins\workspace\gitpull"'
+	bat 'xcopy "C:/Program Files (x86)/Jenkins/workspace/gitpull"'
 	}
 	dir("$workspace_env"){
 	bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a''' 
