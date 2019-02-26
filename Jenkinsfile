@@ -25,3 +25,47 @@ node() {
 	}
   }
 }
+stage('build env'){	
+ def workspace = pwd()
+ print "$workspace"
+ bat '''cd C:/Python27/Scripts
+ set https_proxy=http://165.225.104.32:80
+ pip install virtualenv
+ cd C:/Program Files (x86)/Jenkins/workspace
+virtualenv myproj 
+   '''
+  }
+  	
+stage('install '){ 
+	//pip install selenium
+	//pip install pymodbus
+	//pip install pymodbustcp
+	//pip install pandas
+	//pip install styleframe
+	//pip install wxpython
+	//pip install win-inet-pton
+	//pip install opencv-python
+	//pip install python-appium-client"
+	}
+	bat '''
+        call activate
+	IFE_performance.py
+	'''
+	}
+stage('running the program'){
+	dir("$workspace_env"){
+	commit= bat(returnStdout: true, script: '''set p =%cd%,@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd "C:/Program Files (x86)/Jenkins/workspace/gitpull/%%i" & cd ''').split()
+	 }
+	 echo "${commit} "
+        commit.each {
+        //println "${it}"
+        dir("${it}"){
+	bat '''
+        call activate
+	IFE_performance.py
+	'''
+	}
+	}
+	
+ 	}
+}
