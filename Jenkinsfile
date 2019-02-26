@@ -66,9 +66,7 @@ stage('running the program'){
 	IFE_performance.py
 	'''
 	}
-	catch(){
-	echo " no file"
-	}
+	
 	}
 	}
 	
