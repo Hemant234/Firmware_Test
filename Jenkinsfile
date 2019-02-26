@@ -47,11 +47,6 @@ stage('install '){
 	//pip install opencv-python
 	//pip install python-appium-client"
 	}
-	bat '''
-        call activate
-	IFE_performance.py
-	'''
-	}
 stage('running the program'){
 	dir("$workspace_env"){
 	commit= bat(returnStdout: true, script: '''set p =%cd%,@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd "C:/Program Files (x86)/Jenkins/workspace/gitpull/%%i" & cd ''').split()
