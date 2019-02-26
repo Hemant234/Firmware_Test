@@ -47,9 +47,10 @@ stage('install '){
 	//pip install opencv-python
 	//pip install python-appium-client"
 	}
-stage('copy'){
+try(){
 bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''
 }
+catch(){
 stage('running the program'){
 	dir('C:/Jenkins'){
 	commit= bat(returnStdout: true, script: '''@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd C:/Jenkins/%%i & cd''').split()
@@ -66,4 +67,6 @@ stage('running the program'){
 	}
 	
  	}
+	}
+	
 }
