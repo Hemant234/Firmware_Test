@@ -48,7 +48,7 @@ stage('install '){
 	//pip install python-appium-client"
 	}
 stage('copy'){
-bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" '''
+bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''
 }
 stage('running the program'){
 	dir('C:/Jenkins'){
