@@ -74,5 +74,7 @@ stage('running the program'){
 	
  	}
 	}
-	
+	dir('C:/Jenkins'){
+	bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a''' 
+	}
 }
