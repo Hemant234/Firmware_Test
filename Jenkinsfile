@@ -53,8 +53,7 @@ bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" 
 catch(err){}
 stage('running the program'){
 	dir('C:/Jenkins'){   // hardcoded 
-	commit= bat(returnStdout: true, script: '''@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd C:/Jenkins/%%i & cd''').split()
-	 } // hardcoded 
+	commit= bat(returnStdout: true, script: 'loopname.py' }
 	 echo "${commit} "
         commit.each {
         //println "${it}"
