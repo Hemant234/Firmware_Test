@@ -28,10 +28,10 @@ node() {
 stage('build env'){	
  def workspace = pwd()
  print "$workspace"
- bat '''cd C:/Python27/Scripts
+ bat '''cd C:/Python27/Scripts                         // hardcoded 
  set https_proxy=http://165.225.104.32:80
  pip install virtualenv
- cd C:/Program Files (x86)/Jenkins/workspace
+ cd C:/Program Files (x86)/Jenkins/workspace           // hardcoded 
 virtualenv myproj 
    '''
   }
@@ -48,13 +48,13 @@ stage('install '){
 	//pip install python-appium-client"
 	}
 try{
-bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''
+bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''   // hardcoded 
 }
 catch(err){}
 stage('running the program'){
-	dir('C:/Jenkins'){
+	dir('C:/Jenkins'){   // hardcoded 
 	commit= bat(returnStdout: true, script: '''@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd C:/Jenkins/%%i & cd''').split()
-	 }
+	 } // hardcoded 
 	 echo "${commit} "
         commit.each {
         //println "${it}"
