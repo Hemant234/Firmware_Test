@@ -1,4 +1,4 @@
-ode() {
+node() {
 	
  	stage('checkout'){      
       	   git(
