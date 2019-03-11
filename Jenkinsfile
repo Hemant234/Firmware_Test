@@ -1,4 +1,4 @@
-node() {
+ode() {
 	
  	stage('checkout'){      
       	   git(
@@ -28,10 +28,10 @@ node() {
 stage('build env'){	
  def workspace = pwd()
  print "$workspace"
- bat '''cd C:/Python27/Scripts                         // hardcoded 
+ bat '''cd C:/Python27/Scripts
  set https_proxy=http://165.225.104.32:80
  pip install virtualenv
- cd C:/Program Files (x86)/Jenkins/workspace           // hardcoded 
+ cd C:/Program Files (x86)/Jenkins/workspace
 virtualenv myproj 
    '''
   }
@@ -48,12 +48,14 @@ stage('install '){
 	//pip install python-appium-client"
 	}
 try{
-bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''   // hardcoded 
+bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''
 }
 catch(err){}
 stage('running the program'){
-	dir('C:/Jenkins'){   // hardcoded 
-	commit= bat(returnStdout: true, script: 'loopname.py')
+	dir('C:/Jenkins'){
+        bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a'''
+	commit= bat(returnStdout: true, script: '''@for /f "delims=" %%i in ('dir /b /ad "*" 2^>nul') do @cd C:/Jenkins/%%i & cd''').split()
+	 }
 	 echo "${commit} "
         commit.each {
         //println "${it}"
@@ -72,12 +74,5 @@ stage('running the program'){
 	
  	}
 	}
-	dir('C:/Jenkins'){
-	bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a''' 
-	bat '''
-        call activate
-	python 
-	'''
-	}
-}
+	
 }
