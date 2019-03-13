@@ -37,7 +37,7 @@ node() {
   	}
   	
 	stage('install '){ 
-		bat''' Scripts\activate
+		bat''' Scripts\\activate
 		pip install selenium
 		pip install pymodbus
 		pip install pymodbustcp
