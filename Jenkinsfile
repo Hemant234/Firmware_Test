@@ -37,15 +37,17 @@ node() {
   	}
   	
 	stage('install '){ 
-		//pip install selenium
-		//pip install pymodbus
-		//pip install pymodbustcp
-		//pip install pandas
-		//pip install styleframe
-		//pip install wxpython
-		//pip install win-inet-pton
-		//pip install opencv-python
-		//pip install python-appium-client"
+		bat''' Scripts\activate
+		pip install selenium
+		pip install pymodbus
+		pip install pymodbustcp
+		pip install pandas
+		pip install styleframe
+		pip install wxpython
+		pip install win-inet-pton
+		pip install opencv-python
+		pip install python-appium-client"
+		'''
 	}
 	try{
 		bat''' robocopy "C:/Program Files (x86)/Jenkins/workspace/gitpull" "C:/Jenkins" /S '''
