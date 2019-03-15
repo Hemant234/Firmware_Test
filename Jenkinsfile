@@ -27,7 +27,7 @@ node('') {
 
 	stage('build env'){	
  		def workspace = pwd()
- 		print "$workspace"
+ 		print "$workspace"                             // This part needs more work, I need to install python for this to work 
  		bat '''//cd C:/Python27/Scripts
  		set https_proxy=http://165.225.104.32:80
  		pip install virtualenv
