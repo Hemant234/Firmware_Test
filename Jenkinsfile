@@ -3,7 +3,7 @@ node('') {
  	stage('checkout'){      
       	   git(
        			url: 'https://github.com/Hemant234/Firmware_Test.git',
-       			credentialsId: '	d5810384-46fe-4a24-a05b-0f7eefcea946',
+       			credentialsId: 'd5810384-46fe-4a24-a05b-0f7eefcea946',
        			branch: "master"
     )
 	}
