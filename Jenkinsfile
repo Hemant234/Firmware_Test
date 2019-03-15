@@ -18,7 +18,7 @@ node('ubuntu') {
 		{
 			shortCommit = bat(returnStdout: true, script: "git log -1")
 			writeFile file: "Commitversion.txt", text: "$shortCommit"
-			bat 'xcopy "$workspace_env"' // can be automated to using File operations, if need be 
+			bat "xcopy $workspace_env" // can be automated to using File operations, if need be 
 		}
 		dir("$workspace_env"){
 			bat ''' FOR /f "tokens=*" %%a in ('dir *@tmp /A:D /B') DO RMDIR /S /Q %%a''' 
