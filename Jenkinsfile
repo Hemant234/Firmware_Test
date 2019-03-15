@@ -28,7 +28,7 @@ node('ubuntu') {
 	stage('build env'){	
  		def workspace = pwd()
  		print "$workspace"
- 		bat '''cd C:/Python27/Scripts
+ 		bat '''//cd C:/Python27/Scripts
  		set https_proxy=http://165.225.104.32:80
  		pip install virtualenv
  		cd C:/Program Files (x86)/Jenkins/workspace
