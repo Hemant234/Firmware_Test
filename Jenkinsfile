@@ -1,4 +1,4 @@
-node() {
+node('ubuntu') {
 	
  	stage('checkout'){      
       	   git(
